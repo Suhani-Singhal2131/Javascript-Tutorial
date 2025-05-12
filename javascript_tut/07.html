@@ -11,9 +11,9 @@
         }
     </style>
 </head>
-<body class="bg-black">
+<body class ="bg-black">
     <div >
-        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+        <h1 id="title" class="heading">DOM learning on Chai aur code<span  style="display: none;">text style</span></h1>
         <h2>Lorem ipsum dolor sit.</h2>
         <h2>Lorem ipsum dolor sit.</h2>
         <h2>Lorem ipsum dolor sit.</h2>
@@ -25,7 +25,43 @@
             <li class="list-item">two</li>
             <li class="list-item">three</li>
             <li class="list-item">four</li>
-        </ul>
+        </ul> 
+
     </div>
 </body>
 </html>
+
+<!-- 
+console.log(window)                                -> shows window commands and prototypes
+console.log(window.document)/console.log(document) -> shows the document
+console.dir(document)                              -> shows the commands in document 
+console.log(document.baseURI)                      ->gives the URL of the page
+console.log(document.links)                        ->gives all links of the page
+Note: It will return an HTML Collection which is not an array .Though it 
+can be converted to array .we can't apply methods like for each,map etc to HTML
+Collection
+document.getElementById("firstHeading")            -> select the tag having id as firstHeading
+document.getElementById("firstHeading").innerHTML  -> return the html written inside that tag
+document.getElementById("title").id                -> return the id of the selected tag
+document.getElementById("firstHeading").innerHTML="<h1>Suhani Singhal</h1>"  -> can modify the innner Html
+document.getElementById("title").className         ->return the class of the selected tag
+document.getElementById("title").getAttribute("id")-> return the value of the attribute id in the selected tag
+document.getElementById("title").setAttribute("class","test")   -> change the value of the attribute class to test
+document.getElementById("title").style.backgroundColor="green"  -> we can style using this
+document.getElementById("title").innerText                      -> gives the text which is not hidden
+document.getElementById("title").textContent                    -> gives the whole text
+document.getElementsByClassName("heading")                      -> get element by class name ,return HTML Collection
+document.querySelector('h1')                                    -> can select ant tag directly,it will select the first h1 tag in the document
+document.querySelector('#title')                                -> select by id
+document.querySelector('.heading')                              -> select by class name
+document.querySelector('input[type=password]')                  -> select input tag having type password
+document.querySelector('ul').querySelector('li').style.backgroundColor="green"    ->select the first 'ul' tag then select first 'li' in 'ul' tag and then style it
+document.querySelectorAll('li')                                  ->gives all 'li' tag in the page  int the form of nodelist,we can iterate over its element  using for each
+                                                
+lilist[1].style.backgroundColor="yellow"                        -> If we are targeting a particular element then first store the nodelist in a variable and run the following command
+const temp=document.getElementsByClassName('list-item')         -> get elemnt by class name ,return html collection  store it in a variable
+const modifiedarray=Array.from(temp)                             ->convert html collection to array and sore in a variable
+modifiedarray.forEach((ll)=>{ll.style.color="yellow"})           -> run for each to style all element
+
+
+-->

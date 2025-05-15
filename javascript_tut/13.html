@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur Code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+   //prints suhani after 2 sec on console single time
+    // setTimeout(function(){
+    //     console.log("suhani")
+    // },2000)
+
+    //other method for doing the same thing
+    // const saysuhani=function(){
+    //     console.log("suhani")
+    // }
+    // setTimeout(saysuhani,2000);
+
+    //changing the h1  from chai aur code to best javascript series
+
+    const changeheading=function(){
+        document.querySelector("h1").innerHTML=`BEST JAVASCRIPT SERIES`
+    }
+     const stopme=setTimeout(changeheading,3000);
+
+    //If we want that on clicking stop settimeout will not work
+    document.querySelector("#stop").addEventListener("click",function(){
+        clearTimeout(stopme);
+        console.log("stopped")
+    })
+
+
+</script>
+</html>

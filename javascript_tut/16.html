@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h3 {
+      margin: 10px 0;
+      font-size: 1.5em;
+    }
+
+    .card-content p {
+      color: #555;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+   <button id="btn" width="100px" height="400px">SHOW CARD</button>
+ 
+</body>
+<script>
+     const button=document.getElementById("btn");
+
+     const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+     const xhr = new XMLHttpRequest();
+     xhr.open('GET', requestUrl)
+     xhr.onreadystatechange = function(){
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText);
+            const image_url=data.avatar_url;
+            const followercount=data.followers;
+            
+            button.addEventListener("click",function(e){
+                   document.body.innerHTML=` 
+                   <div class="card">
+                     <img id="image" src="${image_url}" alt="Sample Image">
+                     <div class="card-content">
+                     <h3>${followercount}</h3>
+                     <p>This is a simple card with an image and some text. You can customize it as you like.</p>
+                   </div>
+               </div>`
+           });
+       }
+    }
+    xhr.send();
+   
+</script>
+</html>
